@@ -1,5 +1,3 @@
-console.log("Don't even think about it ")
-
 const server_url = "https://prorohit.pythonanywhere.com/all_posts";
 link="./public/upload/"
 default_posts= [
@@ -103,5 +101,6 @@ async function fetchPosts() {
 
 }
 fetchPosts()
+
 
 
