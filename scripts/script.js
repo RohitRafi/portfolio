@@ -82,13 +82,13 @@ async function typewrite(texts) {
                 await sleep(200);
                 active_word.innerText=(text.slice(0,i))
             }
-            await sleep(500);
+            await sleep(1000);
             for (let i=0;i <=text.length;i++ ){
                 await sleep(200)
 
                 active_word.innerText=(text.slice(0, (text.length)-i))
             }
-            await sleep(1000);
+            await sleep(500)
         }
     }
 }
