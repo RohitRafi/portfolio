@@ -1,16 +1,4 @@
-// Word flip animation
-const words = document.querySelectorAll('.word');
-let currentIndex = 0;
 
-function cycleWords() {
-    words[currentIndex].classList.remove('active');
-    words[currentIndex].classList.add('exit');
-    currentIndex = (currentIndex + 1) % words.length;
-    setTimeout(() => {
-        words.forEach(word => word.classList.remove('exit'));
-        words[currentIndex].classList.add('active');
-    }, 100);
-}
 
 // Navigation scroll arrows
 let scrollInterval;
@@ -78,16 +66,31 @@ function updateNavArrows() {
     }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    setInterval(cycleWords, 1000);
-    
-    const nav = document.querySelector('nav');
-    if (nav && window.innerWidth <= 768) {
-        updateNavArrows();
-        nav.addEventListener('scroll', updateNavArrows);
-    }
-});
-
 window.addEventListener('resize', () => {
     updateNavArrows();
 });
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+active_word=document.querySelector(`.word.active`)
+all_words=["creativity","usability","logic"]
+async function typewrite(texts) {
+    while (1){
+        for (text of texts){
+            for (let i=0;i <=text.length;i++ ){
+                await sleep(200);
+                active_word.innerText=(text.slice(0,i))
+            }
+            await sleep(500);
+            for (let i=0;i <=text.length;i++ ){
+                await sleep(200)
+
+                active_word.innerText=(text.slice(0, (text.length)-i))
+            }
+            await sleep(1000);
+        }
+    }
+}
+
+typewrite(all_words)
