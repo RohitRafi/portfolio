@@ -27,6 +27,17 @@ a {
     transition: color 0.3s ease;
 }
 
+.word {
+
+    color: #FF2AA3;
+    background: linear-gradient(90deg, #1E3CFF 0%, #6A2CFF 50%, #FF2AA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+}
+
+
 /* Header */
 header {
     display: flex;
@@ -152,52 +163,15 @@ main {
 }
 
 /* Word Animation Styles */
-.word-wrapper {
-    display: inline-flex;
-    position: relative;
-    min-width: 4.1em;
-    height: 1.2em;
-    vertical-align: bottom;
-    perspective: 1000px;
-
-}
 
 
 
-
-.word {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transform: rotateX(-90deg);
-    transform-origin: center bottom;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    color: #FF2AA3;
-    background: linear-gradient(90deg, #1E3CFF 0%, #6A2CFF 50%, #FF2AA3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    white-space: nowrap;
-}
 
 /* Fallback for browsers that don't support background-clip */
 @supports not (background-clip: text) {
-    .word {
-        color: #FF2AA3;
-    }
+
 }
 
-.word.active {
-    opacity: 1;
-    transform: rotateX(0deg);
-}
-
-.word.exit {
-    opacity: 0;
-    transform: rotateX(90deg);
-}
 
 .continuation {
     display: inline-block;
@@ -550,16 +524,10 @@ main {
         letter-spacing: -0.02em;
     }
 
-    .headline br {
+    /* .headline br {
         display: none;
-    }
+    } */
 
-    .word-wrapper {
-        min-width: 3.8em;
-        height: 1.35em;
-        display: inline-flex;
-        justify-content: center;
-    }
 
     .logic {
         left: 0;
@@ -778,18 +746,15 @@ main {
         letter-spacing: -0.015em;
     }
 
-    .headline br {
+    /* .headline br {
         display: none;
-    }
+    } */
 
     .logic {
         left: 0;
     }
 
-    .word-wrapper {
-        display: inline-flex;
-        justify-content: center;
-    }
+
 
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
